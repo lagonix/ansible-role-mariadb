@@ -13,6 +13,7 @@ Fixed settings:
 
 Tested under:
 * CentOS 7.4
+* Ubuntu 16.04
 
 ## Requirements
 

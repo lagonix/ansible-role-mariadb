@@ -1,0 +1,8 @@
+---
+mariadb_packages:
+  - mariadb-server
+  - mariadb-client
+  - python-mysqldb
+
+mariadb_service: mariadb
+mariadb_config: /etc/mysql/my.cnf
