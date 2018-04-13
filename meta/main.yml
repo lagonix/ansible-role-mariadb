@@ -4,9 +4,9 @@ galaxy_info:
   license: MIT
   min_ansible_version: 1.9
   platforms:
-  - name: CentOS
+  - name: EL
     versions:
-    - 7.4
+    - 7
   - name: Ubuntu
     versions:
     - xenial
