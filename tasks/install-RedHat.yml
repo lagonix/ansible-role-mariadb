@@ -12,7 +12,7 @@
     gpgcheck: yes
 
 - name: Install MariaDB
-  yum:
+  package:
     name: "{{ item }}"
   with_items: "{{ mariadb_packages }}"
 

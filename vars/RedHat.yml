@@ -3,6 +3,7 @@ mariadb_packages:
   - MariaDB-server
   - MariaDB-client
   - MySQL-python
+  - libselinux-python
 
 mariadb_service: mariadb
 mariadb_config: /etc/my.cnf.d/my.cnf
