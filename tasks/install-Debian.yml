@@ -2,7 +2,7 @@
 - name: Add MariaDB apt key
   apt_key:
     id: 'F1656F24C74CD1D8'
-    keyserver: keyserver.ubuntu.com
+    keyserver: hkp://keyserver.ubuntu.com:80
 
 - name: Add MariaDB apt repository
   apt_repository:
@@ -15,7 +15,7 @@
 
 - name: Start MariaDB service
   service:
-    name: "{{ mariadb_service }}"    
+    name: "{{ mariadb_service }}"
     state: started
     enabled: yes
 
@@ -91,7 +91,7 @@
     login_user: root
     login_password: "{{ mariadb_root_password }}"
     state: "{{ 'absent' if mariadb_root_remote == 0 else 'present' }}"
-  
+
 - name: Create the users
   mysql_user:
     name: "{{ item.name }}"
