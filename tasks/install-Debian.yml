@@ -81,6 +81,7 @@
     login_user: root
     login_password: "{{ mariadb_root_password }}"
     state: absent
+  notify: MariaDB restart
 
 - name: Create remote root user
   mysql_user:
@@ -91,6 +92,7 @@
     login_user: root
     login_password: "{{ mariadb_root_password }}"
     state: "{{ 'absent' if mariadb_root_remote == 0 else 'present' }}"
+  notify: MariaDB restart
   
 - name: Create the users
   mysql_user:
@@ -102,3 +104,4 @@
     login_password: "{{ mariadb_root_password }}"
     state: present
   with_items: "{{ mariadb_users }}"
+  notify: MariaDB restart
