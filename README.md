@@ -50,7 +50,7 @@ No requirements
 | `mariadb_read_buffer_size`               | 128K              | |
 | `mariadb_read_rnd_buffer_size`           | 256k              | |
 | `mariadb_root_password`                  | 'root'            | root password |
-| `mariadb_root_remote`                    | 0                 | 1: enable remote root login |
+| `mariadb_root_remote`                    | `no`              | `yes`: enable remote root login |
 | `mariadb_root_remote_host`               | '%'               | remote root login enabled host |
 | `mariadb_skip_name_resolve`              | 1                 | |
 | `mariadb_slow_query_log`                 | 0                 | |

@@ -4,7 +4,7 @@ mariadb_version: '10.2'
 mariadb_databases: []
 mariadb_users: []
 mariadb_root_password: 'root'
-mariadb_root_remote: 0
+mariadb_root_remote: no
 mariadb_root_remote_host: '%'
 
 mariadb_port: 3306

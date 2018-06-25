@@ -94,7 +94,7 @@
     priv: "*.*:ALL,GRANT"
     login_user: root
     login_password: "{{ mariadb_root_password }}"
-    state: "{{ 'absent' if mariadb_root_remote == 0 else 'present' }}"
+    state: "{{ 'present' if mariadb_root_remote else 'absent' }}"
   notify: MariaDB restart
 
 - name: Create the users
