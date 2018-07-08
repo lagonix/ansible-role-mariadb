@@ -55,6 +55,7 @@ No requirements
 | `mariadb_skip_name_resolve`              | 1                 | |
 | `mariadb_slow_query_log`                 | 0                 | |
 | `mariadb_sort_buffer_size`               | 2M                | |
+| `mariadb_sql_mode`               | NO_AUTO_CREATE_USER, NO_ENGINE_SUBSTITUTION, STRICT_TRANS_TABLES, ERROR_FOR_DIVISION_BY_ZERO | |
 | `mariadb_table_definition_cache`         | 1400              | |
 | `mariadb_table_open_cache`               | 2000              | |
 | `mariadb_table_open_cache_instances`     | 8                 | |
