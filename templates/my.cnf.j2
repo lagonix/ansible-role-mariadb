@@ -63,3 +63,6 @@ long_query_time                = {{ mariadb_long_query_time }}
 
 # Sql mode
 sql_mode                       = {{ mariadb_sql_mode }}
+
+[mysqld]
+plugin-load-add                = auth_socket.so
