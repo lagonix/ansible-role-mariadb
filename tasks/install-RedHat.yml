@@ -106,5 +106,6 @@
     login_user: root
     login_password: "{{ mariadb_root_password }}"
     state: present
+  no_log: true
   with_items: "{{ mariadb_users }}"
   notify: MariaDB restart
