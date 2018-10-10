@@ -1,54 +1,66 @@
 ---
 mariadb_version: '10.2'
+mariadb_repos:
+  RedHat: rhel
 
 mariadb_databases: []
 mariadb_users: []
+mariadb_root_home: /root
 mariadb_root_password: 'root'
 mariadb_root_remote: no
 mariadb_root_remote_host: '%'
 
+mariadb_bind_address: '0.0.0.0'
 mariadb_port: 3306
 mariadb_charset: utf8
 mariadb_collation: utf8_general_ci
 mariadb_skip_name_resolve: 1
 mariadb_lower_case_table_names: 1
-
-mariadb_max_connections: 151
-mariadb_max_user_connections: 0
-mariadb_max_allowed_packet: '16M'
-mariadb_wait_timeout: 28800
-
-mariadb_bind_address: '127.0.0.1'
-
-mariadb_query_cache_size: 0
-
-mariadb_sort_buffer_size: '2M'
-mariadb_tmp_table_size: '16M'
-mariadb_read_buffer_size: '128k'
-mariadb_read_rnd_buffer_size: '256k'
-mariadb_join_buffer_size: '128k'
-
-mariadb_table_definition_cache: '1400'
-mariadb_table_open_cache: '2000'
-mariadb_table_open_cache_instances: '8'
-
-mariadb_max_heap_table_size: '16M'
-
-mariadb_innodb_strict_mode: 'ON'
-mariadb_innodb_file_format_check: 1
-mariadb_innodb_file_format: Barracuda
-mariadb_innodb_buffer_pool_size: '384M'
-mariadb_innodb_buffer_pool_instances: 8
-mariadb_innodb_file_per_table: 'ON'
-mariadb_innodb_flush_log_at_trx_commit: 1
-mariadb_innodb_log_buffer_size: '16M'
-mariadb_innodb_log_file_size: '48M'
-
-mariadb_log_warnings: '1'
-mariadb_slow_query_log: '0'
-mariadb_long_query_time: '10'
-
+mariadb_datadir: /var/lib/mysql
 mariadb_sql_mode: 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO'
 
-mariadb_repos:
-  RedHat: rhel
+mariadb_key_buffer_size: '256M'
+mariadb_max_allowed_packet: '64M'
+mariadb_table_open_cache: 256
+mariadb_sort_buffer_size: '1M'
+mariadb_read_buffer_size: '1M'
+mariadb_read_rnd_buffer_size: '4M'
+mariadb_myisam_sort_buffer_size: '64M'
+mariadb_thread_cache_size: 8
+mariadb_query_cache_type: 0
+mariadb_query_cache_size: '16M'
+mariadb_query_cache_limit: '1M'
+mariadb_max_connections: 151
+mariadb_tmp_table_size: '16M'
+mariadb_max_heap_table_size: '16M'
+mariadb_group_concat_max_len: 1024
+mariadb_join_buffer_size: '256K'
+
+mariadb_enabled_on_startup: true
+
+mariadb_overwrite_global_mycnf: true
+
+mariadb_wait_timeout: 28800
+
+# InnoDB
+mariadb_innodb_buffer_pool_size: '256M'
+mariadb_innodb_file_format: 'barracuda'
+mariadb_innodb_file_per_table: 'ON'
+mariadb_innodb_flush_log_at_trx_commit: 1
+mariadb_innodb_log_buffer_size: '8M'
+mariadb_innodb_log_file_size: '64M'
+mariadb_innodb_lock_wait_timeout: 50
+mariadb_innodb_large_prefix: 1
+
+# mysqldump
+mariadb_mysqldump_max_allowed_packet: '64M'
+
+# Replication
+mariadb_server_id: '1'
+mariadb_max_binlog_size: '100M'
+mariadb_binlog_format: 'ROW'
+mariadb_expire_logs_days: '10'
+mariadb_replication_role: ''
+mariadb_replication_master: ''
+mariadb_replication_master_host: ''
+mariadb_replication_user: []

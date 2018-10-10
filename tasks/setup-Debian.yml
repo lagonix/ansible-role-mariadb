@@ -1,0 +1,41 @@
+---
+- name: Check if MariaDB is already installed.
+  stat: 
+    path: /etc/init.d/mysql
+  register: mariadb_installed
+
+- name: Add MariaDB apt key
+  apt_key:
+    id: 'F1656F24C74CD1D8'
+    keyserver: keyserver.ubuntu.com
+  when: mariadb_installed.stat.exists == false
+
+- name: Add MariaDB apt repository
+  apt_repository:
+    repo: "deb http://nyc2.mirrors.digitalocean.com/mariadb/repo/{{mariadb_version}}/ubuntu {{ansible_distribution_release}} main"
+  when: mariadb_installed.stat.exists == false
+
+- name: Update apt cache if not installed
+  apt: 
+    update_cache: yes
+  when: mariadb_installed.stat.exists == false
+
+- name: Install MariaDB packages.
+  apt:
+    name: "{{ mariadb_packages }}"
+    state: present
+
+- name: Stop MariaDB after initial install.
+  service: 
+    name: "{{ mariadb_service }}"
+    state: stopped
+  when: mariadb_installed.stat.exists == false
+
+- name: Delete innodb log files after initial install.
+  file:
+    path: "{{ mariadb_datadir }}/{{item}}"
+    state: absent
+  with_items:
+    - "ib_logfile0"
+    - "ib_logfile1"
+  when: mariadb_installed.stat.exists == false
