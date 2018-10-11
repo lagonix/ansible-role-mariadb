@@ -17,7 +17,7 @@ Tested against:
 * CentOS 7.4
 * Ubuntu 16.04
 * Ubuntu 18.04
-* MariaDB 10.2 (10.3 is not supported yet)
+* MariaDB 10.3
 
 ## Requirements
 
@@ -35,7 +35,6 @@ No requirements
 | `mariadb_expire_logs_days`               | 10                | the number of days before automatic removal of binary log files. |
 | `mariadb_innodb_buffer_pool_instances`   | 8                 | |
 | `mariadb_innodb_buffer_pool_size`        | 384M              | |
-| `mariadb_innodb_file_format`             | Barracuda         | |
 | `mariadb_innodb_file_format_check`       | 1                 | |
 | `mariadb_innodb_file_per_table`          | ON                | |
 | `mariadb_innodb_flush_log_at_trx_commit` | 1                 | |
@@ -52,7 +51,6 @@ No requirements
 | `mariadb_max_heap_table_size`            | 16M               | |
 | `mariadb_max_user_connections`           | 0                 | |
 | `mariadb_port`                           | 3306              | port number |
-| `mariadb_query_cache_size`               | 0                 | |
 | `mariadb_read_buffer_size`               | 128K              | |
 | `mariadb_read_rnd_buffer_size`           | 256k              | |
 | `mariadb_replication_master`             | ''                | replication master |
@@ -72,7 +70,7 @@ No requirements
 | `mariadb_table_open_cache_instances`     | 8                 | |
 | `mariadb_tmp_table_size`                 | 16M               | |
 | `mariadb_users`                          | []                | users to add |
-| `mariadb_version`                        | '10.2'            | MariaDB version to install |
+| `mariadb_version`                        | '10.3'            | MariaDB version to install |
 | `mariadb_wait_timeout`                   | 28800             | |
 
 ## Dependencies

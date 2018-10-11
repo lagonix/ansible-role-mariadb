@@ -1,9 +1,4 @@
 ---
-- name: Check if MariaDB is already installed.
-  stat: 
-    path: /etc/init.d/mysql
-  register: mariadb_installed
-
 - name: Add official MariaDB repository
   yum_repository:
     name: MariaDB
@@ -11,24 +6,8 @@
     baseurl: "http://yum.mariadb.org/{{ mariadb_version }}/{{ mariadb_repos[ansible_distribution] | default(ansible_distribution | lower) }}{{ ansible_distribution_major_version }}-amd64"
     gpgkey: https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
     gpgcheck: yes
-  when: mariadb_installed.stat.exists == false
 
 - name: Install MariaDB packages.
   yum:
     name: "{{ mariadb_packages }}"
     state: present
-
-- name: Stop MariaDB after initial install.
-  service: 
-    name: "{{ mariadb_service }}"
-    state: stopped
-  when: mariadb_installed.stat.exists == false
-
-- name: Delete innodb log files after initial install.
-  file:
-    path: "{{ mariadb_datadir }}/{{item}}"
-    state: absent
-  with_items:
-    - "ib_logfile0"
-    - "ib_logfile1"
-  when: mariadb_installed.stat.exists == false
