@@ -15,8 +15,8 @@ Fixed settings:
 
 Tested against:
 * CentOS 7.4
-* Ubuntu 16.04
-* Ubuntu 18.04
+* Ubuntu 16.04 (Xenial)
+* Ubuntu 18.04 (Bionic)
 * MariaDB 10.3
 
 ## Requirements
