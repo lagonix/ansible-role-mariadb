@@ -1,7 +1,7 @@
 ---
 mariadb_packages:
-  - mariadb-server
   - mariadb-client
+  - mariadb-server
   - python-mysqldb
 
 mariadb_service: mariadb

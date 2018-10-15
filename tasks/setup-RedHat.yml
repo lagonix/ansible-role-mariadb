@@ -1,0 +1,13 @@
+---
+- name: Add official MariaDB repository
+  yum_repository:
+    name: MariaDB
+    description: Official MariaDB repository
+    baseurl: "http://yum.mariadb.org/{{ mariadb_version }}/{{ mariadb_repos[ansible_distribution] | default(ansible_distribution | lower) }}{{ ansible_distribution_major_version }}-amd64"
+    gpgkey: https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+    gpgcheck: yes
+
+- name: Install MariaDB packages.
+  yum:
+    name: "{{ mariadb_packages }}"
+    state: present

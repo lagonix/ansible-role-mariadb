@@ -1,5 +1,7 @@
 ---
 - name: MariaDB restart
+  become: true
   service:
     name: "{{ mariadb_service }}"
     state: restarted
+    sleep: 5

@@ -1,18 +1,25 @@
 galaxy_info:
+  role_name: mariadb
   author: Lechuck Roh
   description: Manage MariaDB
   license: MIT
-  min_ansible_version: 2.0
+  min_ansible_version: 2.4
   platforms:
   - name: Fedora
     versions:
     - 25
+  - name: EL
+    versions:
+    - 7
   - name: Ubuntu
     versions:
     - xenial
+    - bionic
 
   galaxy_tags:
     - database
+    - mariadb
+    - db
     - sql
 
 dependencies: []
