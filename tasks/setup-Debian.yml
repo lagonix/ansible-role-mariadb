@@ -1,13 +1,13 @@
 ---
 - name: Check if MariaDB is already installed.
-  stat: 
+  stat:
     path: /etc/init.d/mysql
   register: mariadb_installed
 
 - name: Add MariaDB apt key
   apt_key:
     id: 'F1656F24C74CD1D8'
-    keyserver: keyserver.ubuntu.com
+    keyserver: hkp://keyserver.ubuntu.com:80
   when: mariadb_installed.stat.exists == false
 
 - name: Add MariaDB apt repository
@@ -16,7 +16,7 @@
   when: mariadb_installed.stat.exists == false
 
 - name: Update apt cache if not installed
-  apt: 
+  apt:
     update_cache: yes
   when: mariadb_installed.stat.exists == false
 
@@ -26,7 +26,7 @@
     state: present
 
 - name: Stop MariaDB after initial install.
-  service: 
+  service:
     name: "{{ mariadb_service }}"
     state: stopped
   when: mariadb_installed.stat.exists == false
